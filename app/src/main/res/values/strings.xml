@@ -8,4 +8,17 @@
     <string name="user_url_full">%s</string>
     <string name="user_name">Nsikaktopdown</string>
     <string name="user_url">http://github.com/Nsikaktopdown</string>
+    <string name="location_dushanbe">Dushanbe, TJK</string>
+    <string name="github_users">Github Users</string>
+    <string name="name">Name</string>
+    <string name="blog">Blog</string>
+    <string name="user_blog">http://chriswanstrath.com/</string>
+    <string name="bio">bio bio bio</string>
+    <string name="_bio">Bio</string>
+    <string name="public_repos">Public Repos</string>
+    <string name="public_gists">Public Gists</string>
+    <string name="_12">12</string>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
+    <string name="github_single_user">Github Single User</string>
 </resources>
