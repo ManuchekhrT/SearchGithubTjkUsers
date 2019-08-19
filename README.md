@@ -57,13 +57,11 @@ public class GithubUser implements Parcelable {
 
 ### Service
 
-You have to create an interface called Service here to manage your url calls. 
+You need to create an interface called Service here to manage your url calls. 
 In this interface you have to specify the type of the request like POST, GET, PUT, etc. 
 For an asynchronized request you have to add a Callback to your methods and return void.  
-
 To make the HTTp request we need to send some paramenters. In this case it is a query so we can also add ``q`` query parameters with @Query. 
 
-```
 public interface RestApiService {
 
     @GET("/search/users")
@@ -73,10 +71,7 @@ public interface RestApiService {
     Call<GithubSingleUser> getSingleGithubUser(@Path(value = "username", encoded = true) String username);
 }
 
-```
-
-
-### you will have to create your restclient object with your services.
+### You need to create your restclient object with your services.
 
     ```
  public RestApiBuilder() {
@@ -91,11 +86,8 @@ public interface RestApiService {
     }
     
     ```
+![Screenshot_2019-08-19-12-37-52-253_ng codeimpact andelachallengeproject](https://user-images.githubusercontent.com/47312133/63247642-f98dd300-c27e-11e9-84a2-fce31a93ac52.png)
+![Screenshot_2019-08-19-12-38-17-424_ng codeimpact andelachallengeproject](https://user-images.githubusercontent.com/47312133/63247644-fabf0000-c27e-11e9-92ad-29194f8a5277.png)
 
-![screenshot1](https://user-images.githubusercontent.com/47312133/55790693-53fb7380-5ad6-11e9-8557-042f681231ab.png)
-
-## Authors
-
-* **Tursunov M** - *Initial work* - (https://github.com/ManuchekhrT)
 
 
