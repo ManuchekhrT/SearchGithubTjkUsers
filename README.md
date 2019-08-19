@@ -71,21 +71,6 @@ public interface RestApiService {
     Call<GithubSingleUser> getSingleGithubUser(@Path(value = "username", encoded = true) String username);
 }
 
-### You need to create your restclient object with your services.
-
-    ```
- public RestApiBuilder() {
-        retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-    }
-
-    public RestApiService getService() {
-        return retrofit.create(RestApiService.class);
-    }
-    
-    ```
 ![Screenshot_2019-08-19-12-37-52-253_ng codeimpact andelachallengeproject](https://user-images.githubusercontent.com/47312133/63247642-f98dd300-c27e-11e9-84a2-fce31a93ac52.png)
 ![Screenshot_2019-08-19-12-38-17-424_ng codeimpact andelachallengeproject](https://user-images.githubusercontent.com/47312133/63247644-fabf0000-c27e-11e9-92ad-29194f8a5277.png)
 
