@@ -45,7 +45,7 @@ you need models to retrieve data from JSON returned by the server. You have to c
 There is Serializable and Parcelable for serialization and deserialization of object. 
 
 ```
-public class User implements Parcelable {
+public class GithubUser implements Parcelable {
 
     @SerializedName("login")
     @Expose
@@ -67,8 +67,10 @@ To make the HTTp request we need to send some paramenters. In this case it is a 
 public interface RestApiService {
 
     @GET("/search/users")
-    Call<UserList> getUserList(@Query("q") String filter);
+    Call<GithubUserItems> getGithubUsersList(@Query("q") String filter);
 
+    @GET("/users/{username}")
+    Call<GithubSingleUser> getSingleGithubUser(@Path(value = "username", encoded = true) String username);
 }
 
 ```
@@ -90,7 +92,6 @@ public interface RestApiService {
     
     ```
 
-![Screenshot](screenshot/userlist.png)
 
 ## Authors
 
