@@ -1,4 +1,4 @@
-#SearchTjkGithubUsers
+## SearchTjkGithubUsers
 
 Android App to retrieve a list of Developers from Dushanbe, Tjk using Github API search and get a single user
 
