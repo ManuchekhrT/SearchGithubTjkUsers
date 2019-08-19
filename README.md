@@ -1,17 +1,13 @@
-#AndelaChallengeProject
+#SearchTjkGithubUsers
 
-Android app to retrieve a list of Java Developers in Lagos using the Github API 
-
+Android App to retrieve a list of Developers from Dushanbe, Tjk using Github API search and get a single user
 
 ## Getting Started
 
-You can glone or download this project to your local machine. 
+You can clone or download this project.
 
 ### Prerequisites
-
-Intermediate Android Experience
-Little or no experience with [Retrofit] (http://square.github.io/retrofit/) Library
-[GitHub API  ] (https://api.github.com/search/users?q=language:java%20location:lagos)
+[GitHub API] (https://api.github.com/search/users?q=location:dushanbe)
 
 
 
@@ -31,16 +27,10 @@ Parceler is used for serialization and deserialization of objects.
 
 ```
 {
-  "total_count": 142,
+  "total_count": 68,
   "incomplete_results": false,
   "items": [
     {
-      "login": "moyheen",
-      "id": 8110201,
-      "avatar_url": "https://avatars1.githubusercontent.com/u/8110201?v=3",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/moyheen",
-      "html_url": "https://github.com/moyheen",
       .........
     },
  ```
@@ -104,6 +94,6 @@ public interface RestApiService {
 
 ## Authors
 
-* **Nsikak Thompson** - *Initial work* - (https://github.com/Nsikaktopdown)
+* **Tursunov M** - *Initial work* - (https://github.com/ManuchekhrT)
 
 
