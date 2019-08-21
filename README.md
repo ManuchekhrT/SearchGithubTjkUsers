@@ -9,7 +9,10 @@ You can clone or download this project.
 ### Prerequisites
 [GitHub API] (https://api.github.com/search/users?q=location:dushanbe)
 
+### Preview images
 
+![Screenshot_2019-08-19-12-37-52-253_ng codeimpact andelachallengeproject](https://user-images.githubusercontent.com/47312133/63247642-f98dd300-c27e-11e9-84a2-fce31a93ac52.png)
+![Screenshot_2019-08-19-12-38-17-424_ng codeimpact andelachallengeproject](https://user-images.githubusercontent.com/47312133/63247644-fabf0000-c27e-11e9-92ad-29194f8a5277.png)
 
 ### Dependencies
 Obviously to use Retrofit you need this library in your dependencies. You also need a converter used for JSON format : Gson.
@@ -23,9 +26,6 @@ Parceler is used for serialization and deserialization of objects.
 
 
 ### GitHub Api Response in JSON
-
-
-```
 {
   "total_count": 68,
   "incomplete_results": false,
@@ -62,7 +62,7 @@ In this interface you have to specify the type of the request like POST, GET, PU
 For an asynchronized request you have to add a Callback to your methods and return void.  
 To make the HTTp request we need to send some paramenters. In this case it is a query so we can also add ``q`` query parameters with @Query. 
 
-public interface RestApiService {
+public interface ApiService {
 
     @GET("/search/users")
     Call<GithubUserItems> getGithubUsersList(@Query("q") String filter);
@@ -71,8 +71,6 @@ public interface RestApiService {
     Call<GithubSingleUser> getSingleGithubUser(@Path(value = "username", encoded = true) String username);
 }
 
-![Screenshot_2019-08-19-12-37-52-253_ng codeimpact andelachallengeproject](https://user-images.githubusercontent.com/47312133/63247642-f98dd300-c27e-11e9-84a2-fce31a93ac52.png)
-![Screenshot_2019-08-19-12-38-17-424_ng codeimpact andelachallengeproject](https://user-images.githubusercontent.com/47312133/63247644-fabf0000-c27e-11e9-92ad-29194f8a5277.png)
 
 
 
