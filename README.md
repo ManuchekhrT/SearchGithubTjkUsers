@@ -1,17 +1,13 @@
-#AndelaChallengeProject
+## SearchTjkGithubUsers
 
-Android app to retrieve a list of Java Developers in Lagos using the Github API 
-
+Android App to retrieve a list of Developers from Dushanbe, Tjk using Github API search and get a single user
 
 ## Getting Started
 
-You can glone or download this project to your local machine. 
+You can clone or download this project.
 
 ### Prerequisites
-
-Intermediate Android Experience
-Little or no experience with [Retrofit] (http://square.github.io/retrofit/) Library
-[GitHub API  ] (https://api.github.com/search/users?q=language:java%20location:lagos)
+[GitHub API] (https://api.github.com/search/users?q=location:dushanbe)
 
 
 
@@ -31,16 +27,10 @@ Parceler is used for serialization and deserialization of objects.
 
 ```
 {
-  "total_count": 142,
+  "total_count": 68,
   "incomplete_results": false,
   "items": [
     {
-      "login": "moyheen",
-      "id": 8110201,
-      "avatar_url": "https://avatars1.githubusercontent.com/u/8110201?v=3",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/moyheen",
-      "html_url": "https://github.com/moyheen",
       .........
     },
  ```
@@ -55,7 +45,7 @@ you need models to retrieve data from JSON returned by the server. You have to c
 There is Serializable and Parcelable for serialization and deserialization of object. 
 
 ```
-public class User implements Parcelable {
+public class GithubUser implements Parcelable {
 
     @SerializedName("login")
     @Expose
@@ -67,43 +57,22 @@ public class User implements Parcelable {
 
 ### Service
 
-You have to create an interface called Service here to manage your url calls. 
+You need to create an interface called Service here to manage your url calls. 
 In this interface you have to specify the type of the request like POST, GET, PUT, etc. 
 For an asynchronized request you have to add a Callback to your methods and return void.  
-
 To make the HTTp request we need to send some paramenters. In this case it is a query so we can also add ``q`` query parameters with @Query. 
 
-```
 public interface RestApiService {
 
     @GET("/search/users")
-    Call<UserList> getUserList(@Query("q") String filter);
+    Call<GithubUserItems> getGithubUsersList(@Query("q") String filter);
 
+    @GET("/users/{username}")
+    Call<GithubSingleUser> getSingleGithubUser(@Path(value = "username", encoded = true) String username);
 }
 
-```
+![Screenshot_2019-08-19-12-37-52-253_ng codeimpact andelachallengeproject](https://user-images.githubusercontent.com/47312133/63247642-f98dd300-c27e-11e9-84a2-fce31a93ac52.png)
+![Screenshot_2019-08-19-12-38-17-424_ng codeimpact andelachallengeproject](https://user-images.githubusercontent.com/47312133/63247644-fabf0000-c27e-11e9-92ad-29194f8a5277.png)
 
-
-### you will have to create your restclient object with your services.
-
-    ```
- public RestApiBuilder() {
-        retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-    }
-
-    public RestApiService getService() {
-        return retrofit.create(RestApiService.class);
-    }
-    
-    ```
-
-![Screenshot](screenshot/userlist.png)
-
-## Authors
-
-* **Nsikak Thompson** - *Initial work* - (https://github.com/Nsikaktopdown)
 
 
