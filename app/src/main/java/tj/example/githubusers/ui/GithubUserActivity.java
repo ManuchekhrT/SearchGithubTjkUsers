@@ -11,11 +11,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ProgressBar;
 
-import tj.example.githubusers.network.RestApiBuilder;
+import tj.example.githubusers.R;
+import tj.example.githubusers.network.ApiBuilder;
 import tj.example.githubusers.util.CommonUtils;
-import tj.example.andelachallengeproject.R;
 import tj.example.githubusers.model.response.GithubUserItems;
-import tj.example.githubusers.network.RestApiService;
+import tj.example.githubusers.network.ApiService;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -65,7 +65,7 @@ public class GithubUserActivity extends AppCompatActivity {
 
     private void fetchGithubUsersData() {
         String searchParams = "location:dushanbe";
-        RestApiService apiService = new RestApiBuilder().getService();
+        ApiService apiService = new ApiBuilder().getService();
         mProgressBar.setVisibility(View.VISIBLE);
         Call<GithubUserItems> call = apiService.getGithubUsersList(searchParams);
         call.enqueue(new Callback<GithubUserItems>() {

@@ -1,8 +1,6 @@
 package tj.example.githubusers;
 
 import android.app.Application;
-
-import tj.example.andelachallengeproject.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class MyApplication extends Application {

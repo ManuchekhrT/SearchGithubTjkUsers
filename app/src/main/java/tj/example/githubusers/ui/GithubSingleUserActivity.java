@@ -21,12 +21,12 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import me.saket.bettermovementmethod.BetterLinkMovementMethod;
+import tj.example.githubusers.R;
 import tj.example.githubusers.model.GithubSingleUser;
-import tj.example.githubusers.network.RestApiBuilder;
+import tj.example.githubusers.network.ApiBuilder;
 import tj.example.githubusers.util.CommonUtils;
 import tj.example.githubusers.util.ConstantUtils;
-import tj.example.andelachallengeproject.R;
-import tj.example.githubusers.network.RestApiService;
+import tj.example.githubusers.network.ApiService;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -93,7 +93,7 @@ public class GithubSingleUserActivity extends AppCompatActivity {
         }
         mLoadingPb.setVisibility(View.VISIBLE);
         mRelativeLayout.setVisibility(View.GONE);
-        RestApiService apiService = new RestApiBuilder().getService();
+        ApiService apiService = new ApiBuilder().getService();
         Call<GithubSingleUser> call = apiService.getSingleGithubUser(userLogin);
         call.enqueue(new Callback<GithubSingleUser>() {
             @Override

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="tj.example.andelachallengeproject">
+    package="tj.example.githubusers">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -27,11 +27,11 @@
         <activity
             android:name="tj.example.githubusers.ui.GithubSingleUserActivity"
             android:label=""
-            android:parentActivityName="tj.example.githubusers.MainActivity"
+            android:parentActivityName="tj.example.githubusers.ui.GithubUserActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="tj.example.andelachallengeproject.ng.codeimpact.githubusers.MainActivity" />
+                android:value="tj.example.githubusers.ui.GithubUserActivity" />
         </activity>
     </application>
 

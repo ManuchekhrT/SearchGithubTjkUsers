@@ -14,8 +14,8 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import tj.example.githubusers.R;
 import tj.example.githubusers.model.GithubUser;
-import tj.example.andelachallengeproject.R;
 
 public class GithubUserAdapter extends RecyclerView.Adapter<GithubUserAdapter.MyViewHolder> {
 

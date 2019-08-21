@@ -8,7 +8,7 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 
-public interface RestApiService {
+public interface ApiService {
 
     @GET("/search/users")
     Call<GithubUserItems> getGithubUsersList(@Query("q") String filter);
