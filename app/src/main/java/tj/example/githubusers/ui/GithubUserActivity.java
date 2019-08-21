@@ -8,7 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 
 import tj.example.githubusers.R;
@@ -24,6 +27,7 @@ public class GithubUserActivity extends AppCompatActivity {
 
     private RecyclerView mGithubUsersRv;
     private ProgressBar mProgressBar;
+    private GithubUserAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,24 @@ public class GithubUserActivity extends AppCompatActivity {
         ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout);
         mProgressBar = findViewById(R.id.loadingPb);
         mGithubUsersRv = findViewById(R.id.githubUsersRv);
+
+        //search users by login name
+        EditText mSearchEdt = findViewById(R.id.searchEdt);
+        mSearchEdt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(adapter != null){
+                    adapter.getFilter().filter(s.toString());
+                }
+            }
+        });
+
         mGithubUsersRv.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         mGithubUsersRv.setLayoutManager(layoutManager);
@@ -88,7 +110,7 @@ public class GithubUserActivity extends AppCompatActivity {
     }
 
     private void prepareItems(GithubUserItems userItems) {
-        GithubUserAdapter adapter = new GithubUserAdapter(userItems.getItems());
+        adapter = new GithubUserAdapter(userItems.getItems());
         mGithubUsersRv.setAdapter(adapter);
     }
 

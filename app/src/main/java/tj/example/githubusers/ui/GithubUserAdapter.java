@@ -7,19 +7,24 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import tj.example.githubusers.R;
 import tj.example.githubusers.model.GithubUser;
 
-public class GithubUserAdapter extends RecyclerView.Adapter<GithubUserAdapter.MyViewHolder> {
+public class GithubUserAdapter extends RecyclerView.Adapter<GithubUserAdapter.MyViewHolder> implements Filterable {
 
     private List<GithubUser> githubUserList;
+    private List<GithubUser> userListOriginal;
 
     GithubUserAdapter(List<GithubUser> githubUserList) {
         this.githubUserList = githubUserList;
@@ -73,4 +78,43 @@ public class GithubUserAdapter extends RecyclerView.Adapter<GithubUserAdapter.My
             mUserLocationTv = view.findViewById(R.id.userLocationTv);
         }
     }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                FilterResults results = new FilterResults();
+                List<GithubUser> filteredArrayList = new ArrayList<>();
+
+                if (userListOriginal == null) {
+                    userListOriginal = new ArrayList<>(githubUserList);
+                }
+
+                if (constraint == null || constraint.length() == 0) {
+                    results.count = userListOriginal.size();
+                    results.values = userListOriginal;
+                } else {
+                    constraint = constraint.toString().toLowerCase();
+                    for (GithubUser user : userListOriginal) {
+                        if (user.getLogin().toLowerCase(Locale.getDefault()).contains(constraint)) {
+                            filteredArrayList.add(user);
+                        }
+                    }
+
+                    results.count = filteredArrayList.size();
+                    results.values = filteredArrayList;
+                }
+
+                return results;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                githubUserList = (List<GithubUser>) results.values;
+                notifyDataSetChanged();
+            }
+        };
+    }
+
 }
