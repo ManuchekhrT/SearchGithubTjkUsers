@@ -23,9 +23,6 @@ Parceler is used for serialization and deserialization of objects.
 
 
 ### GitHub Api Response in JSON
-
-
-```
 {
   "total_count": 68,
   "incomplete_results": false,
@@ -62,7 +59,7 @@ In this interface you have to specify the type of the request like POST, GET, PU
 For an asynchronized request you have to add a Callback to your methods and return void.  
 To make the HTTp request we need to send some paramenters. In this case it is a query so we can also add ``q`` query parameters with @Query. 
 
-public interface RestApiService {
+public interface ApiService {
 
     @GET("/search/users")
     Call<GithubUserItems> getGithubUsersList(@Query("q") String filter);
